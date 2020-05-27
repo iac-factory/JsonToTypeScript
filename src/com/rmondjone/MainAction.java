@@ -14,10 +14,11 @@ import com.rmondjone.ui.JsonDialog;
 
 import org.jetbrains.annotations.NotNull;
 
+
 /**
- * User: dim
- * Date: 14-7-4
- * Time: 下午1:44
+ * 注释：插件触发Action
+ * 时间：2020/5/27 0027 17:21
+ * 作者：郭翰林
  */
 public class MainAction extends AnAction {
 
