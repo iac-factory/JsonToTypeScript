@@ -1,13 +1,12 @@
 package com.rmondjone.ui;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
-import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.intellij.ide.util.PropertiesComponent;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.MessageType;
 import com.rmondjone.ConvertBridge;
+import com.rmondjone.json.java.src.org.json.JSONArray;
+import com.rmondjone.json.java.src.org.json.JSONObject;
 
 import org.apache.http.util.TextUtils;
 
@@ -20,6 +19,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -36,6 +36,7 @@ public class JsonDialog extends JFrame implements ConvertBridge.Operator {
     private JLabel errorLB;
     private JTextPane editTP;
     private JButton formatBtn;
+    private JCheckBox typeCheckBox;
     private Project project;
     private Editor editor;
     private String errorInfo = null;
@@ -47,6 +48,7 @@ public class JsonDialog extends JFrame implements ConvertBridge.Operator {
         setTitle("Json To TypeScript");
         getRootPane().setDefaultButton(okButton);
         this.setAlwaysOnTop(true);
+        typeCheckBox.setSelected(PropertiesComponent.getInstance().getBoolean("fieldType", true));
         initListener();
     }
 
@@ -57,12 +59,12 @@ public class JsonDialog extends JFrame implements ConvertBridge.Operator {
             String json = editTP.getText();
             json = json.trim();
             if (json.startsWith("{")) {
-                JSONObject jsonObject = JSON.parseObject(json);
-                String formatJson = JSON.toJSONString(jsonObject, SerializerFeature.PrettyFormat);
+                JSONObject jsonObject = new JSONObject(json);
+                String formatJson = jsonObject.toString(4);
                 editTP.setText(formatJson);
             } else if (json.startsWith("[")) {
-                JSONArray jsonArray = JSON.parseArray(json);
-                String formatJson = JSON.toJSONString(jsonArray, SerializerFeature.PrettyFormat);
+                JSONArray jsonArray = new JSONArray();
+                String formatJson = jsonArray.toString(4);
                 editTP.setText(formatJson);
             }
 
@@ -101,12 +103,12 @@ public class JsonDialog extends JFrame implements ConvertBridge.Operator {
     }
 
     private void onOK() {
-
         this.setAlwaysOnTop(false);
         String jsonSTR = editTP.getText().trim();
         if (TextUtils.isEmpty(jsonSTR)) {
             return;
         }
+        PropertiesComponent.getInstance().setValue("fieldType", "" + typeCheckBox.isSelected());
         new ConvertBridge(this, jsonSTR, project, editor).run();
     }
 

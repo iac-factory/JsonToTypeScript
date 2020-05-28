@@ -1,9 +1,10 @@
 package com.rmondjone.common;
 
 
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
+import com.intellij.ide.util.PropertiesComponent;
 import com.intellij.psi.PsiFile;
+import com.rmondjone.json.java.src.org.json.JSONArray;
+import com.rmondjone.json.java.src.org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,12 +45,12 @@ public class Utils {
             //记录值为数组或者对象的key
             if (json.get(key) instanceof JSONObject) {
                 JSONObject jsonObject = json.getJSONObject(key);
-                if (!jsonObject.isEmpty()) {
+                if (jsonObject.length() != 0) {
                     objectKeys.add(key);
                 }
             } else if (json.get(key) instanceof JSONArray) {
                 JSONArray jsonArray = json.getJSONArray(key);
-                if (!jsonArray.isEmpty() && jsonArray.get(0) instanceof JSONObject) {
+                if (jsonArray.length() != 0 && jsonArray.get(0) instanceof JSONObject) {
                     arrayKeys.add(key);
                 }
             }
@@ -87,12 +88,12 @@ public class Utils {
             //记录值为数组或者对象的key
             if (json.get(key) instanceof JSONObject) {
                 JSONObject jsonObject = json.getJSONObject(key);
-                if (!jsonObject.isEmpty()) {
+                if (jsonObject.length() != 0) {
                     objectKeys.add(key);
                 }
             } else if (json.get(key) instanceof JSONArray) {
                 JSONArray jsonArray = json.getJSONArray(key);
-                if (!jsonArray.isEmpty() && jsonArray.get(0) instanceof JSONObject) {
+                if (jsonArray.length() != 0 && jsonArray.get(0) instanceof JSONObject) {
                     arrayKeys.add(key);
                 }
             }
@@ -159,7 +160,13 @@ public class Utils {
             builder.append("boolean;");
             builder.append(lineSeparator);
         } else if (object instanceof JSONObject) {
-            if (!((JSONObject) object).isEmpty()) {
+            if (((JSONObject) object).length() != 0) {
+                //是否开启@Type注解
+                if (PropertiesComponent.getInstance().getBoolean("fieldType", true)) {
+                    builder.append(StringUtils.repeatStr(defaultSpace, 2));
+                    builder.append("@Type(() =>").append(StringUtils.captureStringLeaveUnderscore(key)).append(")");
+                    builder.append(lineSeparator);
+                }
                 builder.append(StringUtils.repeatStr(defaultSpace, 2));
                 builder.append("public");
                 builder.append(defaultSpace);
@@ -169,18 +176,34 @@ public class Utils {
                 builder.append(lineSeparator);
             }
         } else if (object instanceof JSONArray) {
-            if (!((JSONArray) object).isEmpty()) {
-                builder.append(StringUtils.repeatStr(defaultSpace, 2));
-                builder.append("public");
-                builder.append(defaultSpace);
-                builder.append(key).append(":");
-                builder.append(defaultSpace);
+            if (((JSONArray) object).length() != 0) {
                 Object arrayObject = ((JSONArray) object).get(0);
                 if (arrayObject instanceof String) {
+                    builder.append(StringUtils.repeatStr(defaultSpace, 2));
+                    builder.append("public");
+                    builder.append(defaultSpace);
+                    builder.append(key).append(":");
+                    builder.append(defaultSpace);
                     builder.append("string[];");
                 } else if (arrayObject instanceof Number) {
+                    builder.append(StringUtils.repeatStr(defaultSpace, 2));
+                    builder.append("public");
+                    builder.append(defaultSpace);
+                    builder.append(key).append(":");
+                    builder.append(defaultSpace);
                     builder.append("number[];");
                 } else if (arrayObject instanceof JSONObject) {
+                    //是否开启@Type注解
+                    if (PropertiesComponent.getInstance().getBoolean("fieldType", true)) {
+                        builder.append(StringUtils.repeatStr(defaultSpace, 2));
+                        builder.append("@Type(() =>").append(StringUtils.captureStringLeaveUnderscore(key)).append(")");
+                        builder.append(lineSeparator);
+                    }
+                    builder.append(StringUtils.repeatStr(defaultSpace, 2));
+                    builder.append("public");
+                    builder.append(defaultSpace);
+                    builder.append(key).append(":");
+                    builder.append(defaultSpace);
                     builder.append(StringUtils.captureStringLeaveUnderscore(key)).append("[];");
                 }
                 builder.append(lineSeparator);

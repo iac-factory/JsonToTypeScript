@@ -6,13 +6,12 @@
 
     <description>
         <![CDATA[
-        <h2>Json转TypeScript Class对象生成插件</h2>
-        <p>作者:郭翰林</p>
-        <p>插件GitHub地址:<a href="https://github.com/RmondJone/JsonToTypeScript">https://github.com/RmondJone/JsonToTypeScript</a></p>
-
         <h2>Json to TypeScript Class object generation plug-in</h2>
         <p>Author: Guo Hanlin</p>
         <p>Plugin GitHub address:<a href="https://github.com/RmondJone/JsonToTypeScript">https://github.com/RmondJone/JsonToTypeScript</a></p>
+
+        <h2>Supports @Type type conversion of class-transformer</h2>
+        <p>Refer to the introduction of class-transformer for details:<a href="https://www.npmjs.com/package/class-transformer">https://www.npmjs.com/package/class-transformer</a></p>
         ]]>
     </description>
 

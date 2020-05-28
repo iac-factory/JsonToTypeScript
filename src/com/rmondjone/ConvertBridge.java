@@ -1,8 +1,5 @@
 package com.rmondjone;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
 import com.intellij.openapi.command.WriteCommandAction;
 import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.editor.Editor;
@@ -10,6 +7,8 @@ import com.intellij.openapi.project.Project;
 import com.intellij.psi.PsiFile;
 import com.intellij.psi.util.PsiUtilBase;
 import com.rmondjone.common.Utils;
+import com.rmondjone.json.java.src.org.json.JSONArray;
+import com.rmondjone.json.java.src.org.json.JSONObject;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -67,10 +66,10 @@ public class ConvertBridge {
 
     private JSONObject parseJSONObject(String jsonStr) {
         if (jsonStr.startsWith("{")) {
-            return JSON.parseObject(jsonStr);
+            return new JSONObject(jsonStr);
         } else if (jsonStr.startsWith("[")) {
-            JSONArray jsonArray = JSON.parseArray(jsonStr);
-            if (jsonArray.size() > 0 && jsonArray.get(0) instanceof JSONObject) {
+            JSONArray jsonArray = new JSONArray(jsonStr);
+            if (jsonArray.length() > 0 && jsonArray.get(0) instanceof JSONObject) {
                 return getJsonObject(jsonArray);
             }
         }
@@ -80,7 +79,7 @@ public class ConvertBridge {
 
     private JSONObject getJsonObject(JSONArray jsonArray) {
         JSONObject resultJSON = jsonArray.getJSONObject(0);
-        for (int i = 1; i < jsonArray.size(); i++) {
+        for (int i = 1; i < jsonArray.length(); i++) {
             Object value = jsonArray.get(i);
             if (!(value instanceof JSONObject)) {
                 break;
