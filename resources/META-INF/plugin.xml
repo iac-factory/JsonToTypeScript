@@ -1,13 +1,16 @@
 <idea-plugin>
     <id>com.rmondjone.jsontotypescript</id>
     <name>JsonToTypeScript</name>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <vendor email="2318560278@qq.com" url="https://github.com/RmondJone">郭翰林</vendor>
 
     <description>
         <![CDATA[
+        <img src="https://plugins.jetbrains.com/files/14393/screenshot_22039.png"/>
+
         <h2>Json to TypeScript Class object generation plug-in</h2>
         <p>Author: Guo Hanlin</p>
+        <p>Instructions: Alt+T</p>
         <p>Plugin GitHub address:<a href="https://github.com/RmondJone/JsonToTypeScript">https://github.com/RmondJone/JsonToTypeScript</a></p>
 
         <h2>Supports @Type type conversion of class-transformer</h2>
