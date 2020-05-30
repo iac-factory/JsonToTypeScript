@@ -139,7 +139,7 @@ public class Utils {
             builder.append(StringUtils.repeatStr(defaultSpace, 2));
             builder.append("public");
             builder.append(defaultSpace);
-            builder.append(key).append(":");
+            builder.append(key).append("?").append(":");
             builder.append(defaultSpace);
             builder.append("number;");
             builder.append(lineSeparator);
@@ -147,7 +147,7 @@ public class Utils {
             builder.append(StringUtils.repeatStr(defaultSpace, 2));
             builder.append("public");
             builder.append(defaultSpace);
-            builder.append(key).append(":");
+            builder.append(key).append("?").append(":");
             builder.append(defaultSpace);
             builder.append("string;");
             builder.append(lineSeparator);
@@ -155,7 +155,7 @@ public class Utils {
             builder.append(StringUtils.repeatStr(defaultSpace, 2));
             builder.append("public");
             builder.append(defaultSpace);
-            builder.append(key).append(":");
+            builder.append(key).append("?").append(":");
             builder.append(defaultSpace);
             builder.append("boolean;");
             builder.append(lineSeparator);
@@ -170,7 +170,7 @@ public class Utils {
                 builder.append(StringUtils.repeatStr(defaultSpace, 2));
                 builder.append("public");
                 builder.append(defaultSpace);
-                builder.append(key).append(":");
+                builder.append(key).append("?").append(":");
                 builder.append(defaultSpace);
                 builder.append(StringUtils.captureStringLeaveUnderscore(key)).append(";");
                 builder.append(lineSeparator);
@@ -182,14 +182,14 @@ public class Utils {
                     builder.append(StringUtils.repeatStr(defaultSpace, 2));
                     builder.append("public");
                     builder.append(defaultSpace);
-                    builder.append(key).append(":");
+                    builder.append(key).append("?").append(":");
                     builder.append(defaultSpace);
                     builder.append("string[];");
                 } else if (arrayObject instanceof Number) {
                     builder.append(StringUtils.repeatStr(defaultSpace, 2));
                     builder.append("public");
                     builder.append(defaultSpace);
-                    builder.append(key).append(":");
+                    builder.append(key).append("?").append(":");
                     builder.append(defaultSpace);
                     builder.append("number[];");
                 } else if (arrayObject instanceof JSONObject) {
@@ -202,7 +202,7 @@ public class Utils {
                     builder.append(StringUtils.repeatStr(defaultSpace, 2));
                     builder.append("public");
                     builder.append(defaultSpace);
-                    builder.append(key).append(":");
+                    builder.append(key).append("?").append(":");
                     builder.append(defaultSpace);
                     builder.append(StringUtils.captureStringLeaveUnderscore(key)).append("[];");
                 }
@@ -212,7 +212,7 @@ public class Utils {
             builder.append(StringUtils.repeatStr(defaultSpace, 2));
             builder.append("public");
             builder.append(defaultSpace);
-            builder.append(key).append(":");
+            builder.append(key).append("?").append(":");
             builder.append(defaultSpace);
             builder.append("any;");
             builder.append(lineSeparator);
