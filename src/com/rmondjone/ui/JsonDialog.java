@@ -63,7 +63,7 @@ public class JsonDialog extends JFrame implements ConvertBridge.Operator {
                 String formatJson = jsonObject.toString(4);
                 editTP.setText(formatJson);
             } else if (json.startsWith("[")) {
-                JSONArray jsonArray = new JSONArray();
+                JSONArray jsonArray = new JSONArray(json);
                 String formatJson = jsonArray.toString(4);
                 editTP.setText(formatJson);
             }

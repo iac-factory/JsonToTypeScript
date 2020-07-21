@@ -33,6 +33,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="MIXED" />
     <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="GithubPullRequestsUISettings">
@@ -339,18 +340,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1014" y="264" key="#xdebugger.evaluate/0.0.1920.1040@0.0.1920.1040" timestamp="1590631610351" />
-    <state x="558" y="91" width="1153" height="942" key="CommitChangelistDialog2" timestamp="1590635762569">
+    <state x="558" y="91" width="1153" height="942" key="CommitChangelistDialog2" timestamp="1595322865371">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="558" y="91" width="1153" height="942" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1590635762569" />
+    <state x="558" y="91" width="1153" height="942" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1595322865371" />
     <state width="408" height="466" key="DebuggerActiveHint" timestamp="1590551231800">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="408" height="466" key="DebuggerActiveHint/0.0.1920.1040@0.0.1920.1040" timestamp="1590551231800" />
-    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1590999431711">
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1595322813531">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590999431711" />
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595322813531" />
     <state x="761" y="331" key="FileChooserDialogImpl" timestamp="1590999006814">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -407,18 +408,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="540" y="253" key="IDE.errors.dialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590481291474" />
-    <state x="745" y="220" key="RollbackChangesDialog" timestamp="1590482764645">
+    <state x="745" y="220" key="RollbackChangesDialog" timestamp="1595322890564">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="745" y="220" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590482764645" />
+    <state x="745" y="220" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595322890564" />
     <state x="75" y="105" width="1729" height="867" key="SettingsEditor" timestamp="1590999326202">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="75" y="105" width="1729" height="867" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1590999326202" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1590635766822">
+    <state x="731" y="57" key="Vcs.Push.Dialog.v2" timestamp="1595322876387">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1590635766822" />
+    <state x="731" y="57" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1595322876387" />
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1590548439202">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
