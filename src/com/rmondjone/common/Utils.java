@@ -7,7 +7,9 @@ import com.rmondjone.json.java.src.org.json.JSONArray;
 import com.rmondjone.json.java.src.org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -24,6 +26,12 @@ public class Utils {
      * 分割行
      */
     public static String lineSeparator = "\n";
+    /**
+     * 注释：记录已经被转换的JSON实体
+     * 时间：2020/12/2 0002 19:13
+     * 作者：郭翰林
+     */
+    private static Map<String, JSONObject> jsonObjectMap = new HashMap<>();
 
     /**
      * 注释：创建返回TS实体
@@ -38,7 +46,14 @@ public class Utils {
     public static String createCommentString(JSONObject json, List<String> filedList, PsiFile psiFile) {
         List<String> objectKeys = new ArrayList<>();
         List<String> arrayKeys = new ArrayList<>();
+        jsonObjectMap.clear();
         StringBuilder stringBuilder = new StringBuilder();
+        if (PropertiesComponent.getInstance().getBoolean("fieldType", true)) {
+            stringBuilder.append("import \"reflect-metadata\";");
+            stringBuilder.append(lineSeparator);
+            stringBuilder.append("import {Type} from \"class-transformer\";");
+            stringBuilder.append(StringUtils.repeatStr(lineSeparator, 2));
+        }
         stringBuilder.append("export default class ").append(getPsiClassName(psiFile)).append(" {");
         stringBuilder.append(lineSeparator);
         for (String key : filedList) {
@@ -69,6 +84,19 @@ public class Utils {
     }
 
     /**
+     * 注释：判断2个JSONObject结构是否一致
+     * 时间：2020/12/2 0002 19:26
+     * 作者：郭翰林
+     *
+     * @param jsonA
+     * @param jsonB
+     * @return
+     */
+    public static boolean isEqualJsonObject(JSONObject jsonA, JSONObject jsonB) {
+        return jsonA.keySet().toString().equals(jsonB.keySet().toString());
+    }
+
+    /**
      * 注释：创建JSONObject对应的实体
      * 时间：2020/5/27 0027 15:39
      * 作者：郭翰林
@@ -78,6 +106,15 @@ public class Utils {
      * @return
      */
     public static String createObjectString(JSONObject json, String ObjectKey) {
+        //判断创建对象是否重复
+        if (jsonObjectMap.containsKey(ObjectKey)) {
+            //比较对象的key是否完全一致，完全一致则认为是同一对象
+            JSONObject alreadyJson = jsonObjectMap.get(ObjectKey);
+            if (isEqualJsonObject(alreadyJson, json)) {
+                return "";
+            }
+        }
+        jsonObjectMap.put(ObjectKey, json);
         List<String> objectKeys = new ArrayList<>();
         List<String> arrayKeys = new ArrayList<>();
         StringBuilder stringBuilder = new StringBuilder();
