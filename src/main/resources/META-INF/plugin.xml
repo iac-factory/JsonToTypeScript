@@ -1,0 +1,50 @@
+<idea-plugin>
+    <id>com.rmondjone.jsontotypescript</id>
+    <name>JsonToTypeScript</name>
+    <version>1.3.1</version>
+    <vendor email="2318560278@qq.com" url="https://github.com/RmondJone">郭翰林</vendor>
+
+    <description>
+        <![CDATA[
+            <h1>Json to TypeScript Class object generation plug-in</h1>
+            <p>Author: Guo Hanlin</p>
+            <p>How to use: shortcut key Alt + T or use the generate menu</p>
+            <p>Plugin GitHub address:<a href="https://github.com/RmondJone/JsonToTypeScript">https://github.com/RmondJone/JsonToTypeScript</a></p>
+            <h2>Supports @Type type conversion of class-transformer</h2>
+            <p>Refer to the introduction of class-transformer for details:<a href="https://www.npmjs.com/package/class-transformer">https://www.npmjs.com/package/class-transformer</a></p>
+            <h2>YapiQuickType Plugin Recommendation</h2>
+            <p>If you use Yapi, you can use another plugin of mine:<a href="https://github.com/RmondJone/YapiQuickType">Yapi QuickType</a></p>
+            <br/>
+
+            <h1>Json to TypeScript 实体对象转换插件</h1>
+            <p>作者: 郭翰林</p>
+            <p>使用方法: 快捷键Alt+T或者使用Generate菜单</p>
+            <p>插件GitHub地址:<a href="https://github.com/RmondJone/JsonToTypeScript">https://github.com/RmondJone/JsonToTypeScript</a></p>
+            <h2>支持类转换器的@Type类型转换</h2>
+            <p>有关详细信息，请参阅class-transformer简介:<a href="https://www.npmjs.com/package/class-transformer">https://www.npmjs.com/package/class-transformer</a></p>
+            <h2>YapiQuickType插件推荐</h2>
+            <p>如果你使用了Yapi，可以使用我的另一个插件：<a href="https://github.com/RmondJone/YapiQuickType">Yapi QuickType</a></p>
+            <br/>
+            <img src="https://plugins.jetbrains.com/files/14393/screenshot_22039.png"/>
+       ]]>
+    </description>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="145" />
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.lang</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <action id="JsonToTypeScript" class="com.rmondjone.MainAction" text="JsonToTypeScript">
+            <add-to-group group-id="GenerateGroup" anchor="last" />
+            <keyboard-shortcut keymap="$default" first-keystroke="alt t" />
+        </action>
+    </actions>
+
+</idea-plugin>
