@@ -4,7 +4,7 @@ plugins {
 }
 
 group 'com.rmondjone.jsontotypescript'
-version '1.3.1'
+version '1.3.2'
 
 repositories {
     mavenCentral()
@@ -21,9 +21,15 @@ intellij {
     pluginName 'JsonToTypeScript'
     updateSinceUntilBuild false
 }
+
+compileJava {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
 patchPluginXml {
     changeNotes """
-      1、插件描述更新
+      1、采用JDK11编译
       """
 }
 test {

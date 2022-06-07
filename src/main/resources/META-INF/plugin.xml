@@ -1,7 +1,6 @@
 <idea-plugin>
     <id>com.rmondjone.jsontotypescript</id>
     <name>JsonToTypeScript</name>
-    <version>1.3.1</version>
     <vendor email="2318560278@qq.com" url="https://github.com/RmondJone">郭翰林</vendor>
 
     <description>
@@ -30,7 +29,7 @@
     </description>
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
-    <idea-version since-build="145" />
+    <idea-version since-build="203"/>
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
          on how to target different products -->
