@@ -1,3 +1,4 @@
+![Downloads](https://img.shields.io/jetbrains/plugin/d/com.rmondjone.jsontotypescript)
 
 **Json to TypeScript Class object generation plug-in**
 
